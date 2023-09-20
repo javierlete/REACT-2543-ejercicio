@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <Menu />
-      <main class="container">
+      <main className="container">
         <Fichas />
       </main>
       <Anuncios />
