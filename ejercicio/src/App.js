@@ -5,6 +5,7 @@ import Pie from './componentes/Pie';
 
 import { PRODUCTOS } from './constantes/productos';
 import { MENUS } from './constantes/menus';
+import { ANUNCIOS } from './constantes/anuncios';
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
       <main className="container">
         <Fichas productos={PRODUCTOS} />
       </main>
-      <Anuncios />
+      <Anuncios anuncios={ANUNCIOS} />
       <Pie />
     </>
   );
