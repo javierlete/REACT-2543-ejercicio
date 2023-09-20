@@ -6,6 +6,7 @@ import Pie from './componentes/Pie';
 import { PRODUCTOS } from './constantes/productos';
 import { MENUS } from './constantes/menus';
 import { ANUNCIOS } from './constantes/anuncios';
+import { REDES } from './constantes/redes';
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
         <Fichas productos={PRODUCTOS} />
       </main>
       <Anuncios anuncios={ANUNCIOS} />
-      <Pie />
+      <Pie redes={ REDES } />
     </>
   );
 }
