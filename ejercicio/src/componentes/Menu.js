@@ -1,4 +1,4 @@
-export default function Menu() {
+export default function Menu({ menus }) {
     return (
         <nav className="navbar navbar-expand-sm bg-dark mb-3" data-bs-theme="dark">
             <div className="container-fluid">
@@ -10,14 +10,10 @@ export default function Menu() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto">
-                        <li className="nav-item">
-                            <a className="nav-link" href="index.html">Principal</a>
-                        </li>
+                        {menus.izquierda.map(m => <li className="nav-item" key={m.url}><a className="nav-link" href={m.url}>{m.nombre}</a></li>)}
                     </ul>
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" href="admin.html">Administración</a>
-                        </li>
+                        {menus.derecha.map(m => <li className="nav-item" key={m.url}><a className="nav-link" href={m.url}>{m.nombre}</a></li>)}
                     </ul>
                 </div>
             </div>
