@@ -7,15 +7,19 @@ import { PRODUCTOS } from './constantes/productos';
 import { MENUS } from './constantes/menus';
 import { ANUNCIOS } from './constantes/anuncios';
 import { REDES } from './constantes/redes';
+import Listado from './componentes/admin/Listado';
+import Formulario from './componentes/admin/Formulario';
 
 export default function App() {
   return (
     <>
       <Menu menus={MENUS} />
       <main className="container">
-        <Fichas productos={PRODUCTOS} />
+        {/* <Fichas productos={PRODUCTOS} /> */}
+        <Listado />
+        <Formulario />
       </main>
-      <Anuncios anuncios={ANUNCIOS} />
+      {/* <Anuncios anuncios={ANUNCIOS} /> */}
       <Pie redes={ REDES } />
     </>
   );
