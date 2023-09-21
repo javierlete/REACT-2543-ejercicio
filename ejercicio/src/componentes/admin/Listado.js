@@ -1,3 +1,5 @@
+import Linea from "./Linea";
+
 export default function Listado() {
     return (
         <table class="table table-hovered table-striped table-bordered">
@@ -11,26 +13,8 @@ export default function Listado() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>Producto 1</td>
-                    <td>100</td>
-                    <td>Descripción del producto 1</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="#" class="btn btn-sm btn-danger">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <td>Producto 2</td>
-                    <td>200</td>
-                    <td>Descripción del producto 2</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="#" class="btn btn-sm btn-danger">Eliminar</a>
-                    </td>
-                </tr>
+                <Linea />
+                <Linea />
             </tbody>
             <tfoot class="table-dark">
                 <tr>
