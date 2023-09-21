@@ -1,15 +1,15 @@
-export default function LabelInput({ nombre, id, tipo, requerido, textoMinimo, numeroMinimo }) {
+export default function LabelInput({ nombre, id, tipo, requerido, textoMinimo, numeroMinimo, valor }) {
     let control;
 
     switch(tipo) {
         case 'textarea':
-            control = <textarea required={requerido} minLength={textoMinimo} min={numeroMinimo} className="form-control" id={id} />;
+            control = <textarea required={requerido} minLength={textoMinimo} min={numeroMinimo} className="form-control" id={id} value={valor}/>;
             break;
         case 'button':
             control = <button type="submit" className="btn btn-primary">{nombre}</button>;
             break;
         default:
-            control = <input type={tipo} required={requerido} minLength={textoMinimo} min={numeroMinimo} className="form-control" id={id} />;
+            control = <input type={tipo} required={requerido} minLength={textoMinimo} min={numeroMinimo} className="form-control" id={id} value={valor} />;
     }
     return (
         <div className="row mb-3">

@@ -1,3 +1,4 @@
+import Admin from './componentes/admin/Admin';
 import Anuncios from './componentes/Anuncios';
 import Fichas from './componentes/Fichas';
 import Menu from './componentes/Menu';
@@ -7,8 +8,7 @@ import { PRODUCTOS } from './constantes/productos';
 import { MENUS } from './constantes/menus';
 import { ANUNCIOS } from './constantes/anuncios';
 import { REDES } from './constantes/redes';
-import Listado from './componentes/admin/Listado';
-import Formulario from './componentes/admin/Formulario';
+
 
 export default function App() {
   return (
@@ -16,8 +16,7 @@ export default function App() {
       <Menu menus={MENUS} />
       <main className="container">
         {/* <Fichas productos={PRODUCTOS} /> */}
-        <Listado productos={PRODUCTOS} />
-        <Formulario />
+        <Admin productos={PRODUCTOS} />
       </main>
       {/* <Anuncios anuncios={ANUNCIOS} /> */}
       <Pie redes={ REDES } />
