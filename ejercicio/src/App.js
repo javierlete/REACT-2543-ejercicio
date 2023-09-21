@@ -16,7 +16,7 @@ export default function App() {
       <Menu menus={MENUS} />
       <main className="container">
         {/* <Fichas productos={PRODUCTOS} /> */}
-        <Listado />
+        <Listado productos={PRODUCTOS} />
         <Formulario />
       </main>
       {/* <Anuncios anuncios={ANUNCIOS} /> */}

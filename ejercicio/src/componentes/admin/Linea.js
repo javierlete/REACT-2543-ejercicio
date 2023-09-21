@@ -1,13 +1,13 @@
-export default function Linea() {
+export default function Linea({ producto }) {
     return (
         <tr>
-            <th>1</th>
-            <td>Producto 1</td>
-            <td>100</td>
-            <td>Descripción del producto 1</td>
+            <th>{producto.id}</th>
+            <td>{producto.nombre}</td>
+            <td>{producto.precio}</td>
+            <td>{producto.descripcion}</td>
             <td>
-                <a href="#" class="btn btn-sm btn-primary">Editar</a>
-                <a href="#" class="btn btn-sm btn-danger">Eliminar</a>
+                <a href="#" className="btn btn-sm btn-primary">Editar</a>
+                <a href="#" className="btn btn-sm btn-danger">Eliminar</a>
             </td>
         </tr>
     );
