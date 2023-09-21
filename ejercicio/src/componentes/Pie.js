@@ -3,7 +3,7 @@ export default function Pie({ redes }) {
         <footer className="p-2 text-bg-dark d-flex flex-column">
             <p className="text-center">&copy; 2023 Javier Lete</p>
             <ul className="list-unstyled d-flex justify-content-around">
-                {redes.map(r => <li><a className="text-white" href={r.url}>{r.nombre}</a></li>)}
+                {redes.map(r => <li key={r.url}><a className="text-white" href={r.url}>{r.nombre}</a></li>)}
             </ul>
         </footer>
     );
