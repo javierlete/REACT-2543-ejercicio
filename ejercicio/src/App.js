@@ -8,13 +8,14 @@ import { MENUS } from './constantes/menus';
 import { ANUNCIOS } from './constantes/anuncios';
 import { REDES } from './constantes/redes';
 import { useEffect, useState } from 'react';
+import { URL_PRODUCTOS } from './constantes/globales';
 
 
 export default function App() {
   const [productos, setProductos] = useState([]);
   
   useEffect(() => {
-    fetch('json/productos.json')
+    fetch(URL_PRODUCTOS)
       .then(respuesta => respuesta.json())
       .then(productos => setProductos(productos));
   }, []);
