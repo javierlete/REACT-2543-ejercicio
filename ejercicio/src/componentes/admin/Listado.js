@@ -1,3 +1,4 @@
+import { PRODUCTO_VACIO } from "../../constantes/productoVacio";
 import Linea from "./Linea";
 
 export default function Listado({ productos, setProducto }) {
@@ -22,7 +23,7 @@ export default function Listado({ productos, setProducto }) {
                     <td></td>
                     <td></td>
                     <td>
-                        <a href="#" className="btn btn-sm btn-primary">Añadir</a>
+                        <button type="button" onClick={() => setProducto(PRODUCTO_VACIO)} className="btn btn-sm btn-primary">Añadir</button>
                     </td>
                 </tr>
             </tfoot>
