@@ -1,7 +1,6 @@
-import { PRODUCTO_VACIO } from "../../constantes/productoVacio";
 import Linea from "./Linea";
 
-export default function Listado({ productos, setProducto }) {
+export default function Listado({ productos, setIdSeleccionado }) {
     return (
         <table className="table table-hovered table-striped table-bordered">
             <thead className="table-dark">
@@ -14,7 +13,7 @@ export default function Listado({ productos, setProducto }) {
                 </tr>
             </thead>
             <tbody>
-                {productos.map(producto => <Linea key={producto.id} producto={producto} setProducto={setProducto} />)}
+                {productos.map(producto => <Linea key={producto.id} producto={producto} setIdSeleccionado={setIdSeleccionado} />)}
             </tbody>
             <tfoot className="table-dark">
                 <tr>
@@ -23,7 +22,7 @@ export default function Listado({ productos, setProducto }) {
                     <td></td>
                     <td></td>
                     <td>
-                        <button type="button" onClick={() => setProducto(PRODUCTO_VACIO)} className="btn btn-sm btn-primary">Añadir</button>
+                        <button type="button" onClick={() => setIdSeleccionado(null)} className="btn btn-sm btn-primary">Añadir</button>
                     </td>
                 </tr>
             </tfoot>
