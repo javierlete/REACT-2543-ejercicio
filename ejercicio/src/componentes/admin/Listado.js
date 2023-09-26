@@ -1,6 +1,6 @@
 import Linea from "./Linea";
 
-export default function Listado({ productos, setIdSeleccionado }) {
+export default function Listado({ productos, setIdSeleccionado, setProductos }) {
     return (
         <table className="table table-hovered table-striped table-bordered">
             <thead className="table-dark">
@@ -13,7 +13,7 @@ export default function Listado({ productos, setIdSeleccionado }) {
                 </tr>
             </thead>
             <tbody>
-                {productos.map(producto => <Linea key={producto.id} producto={producto} setIdSeleccionado={setIdSeleccionado} />)}
+                {productos.map(producto => <Linea key={producto.id} producto={producto} setIdSeleccionado={setIdSeleccionado} setProductos={setProductos} />)}
             </tbody>
             <tfoot className="table-dark">
                 <tr>

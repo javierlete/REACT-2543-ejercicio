@@ -6,7 +6,7 @@ export default function LabelInput({ nombre, id, tipo, requerido, soloLectura, t
             control = <textarea required={requerido} minLength={textoMinimo} min={numeroMinimo} className="form-control" id={id} value={valor} onChange={e => modificarValor(e.target.value)} />;
             break;
         case 'button':
-            control = <button onClick={onEnviar} type="submit" className="btn btn-primary">{nombre}</button>;
+            control = <button onClick={onEnviar} type="button" className="btn btn-primary">{nombre}</button>;
             break;
         default:
             control = <input type={tipo} required={requerido} readOnly={soloLectura} minLength={textoMinimo} min={numeroMinimo} className="form-control" id={id} value={valor} onChange={e => modificarValor(e.target.value)} />;

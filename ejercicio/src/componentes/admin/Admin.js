@@ -3,16 +3,24 @@ import Formulario from "./Formulario";
 
 import { useEffect, useState } from "react";
 import { PRODUCTO_VACIO } from "../../constantes/productoVacio";
-import { URL_PRODUCTOS } from "../../constantes/globales";
 
-export default function Admin({ productos }) {
+import ProductoService from "../../servicios/ProductoService"; 
+
+export default function Admin({ productos, setProductos }) {
     const [idSeleccionado, setIdSeleccionado] = useState(null);
     const [producto, setProducto] = useState(PRODUCTO_VACIO);
 
     useEffect(() => {
-        idSeleccionado && fetch(URL_PRODUCTOS + idSeleccionado)
-            .then(respuesta => respuesta.json())
-            .then(producto => setProducto(producto))
+        async function rellenarProducto() {
+            if (idSeleccionado) {
+                const producto = await ProductoService.getProducto(idSeleccionado);
+                setProducto(producto);
+            } else {
+                setProducto(PRODUCTO_VACIO);
+            }
+        }
+
+        rellenarProducto();
     }
         , [idSeleccionado]
     );
@@ -23,8 +31,8 @@ export default function Admin({ productos }) {
         <>
             {/* <pre>{JSON.stringify(producto)}</pre> */}
             <pre>{idSeleccionado}</pre>
-            <Listado productos={productos} setIdSeleccionado={setIdSeleccionado} />
-            <Formulario producto={producto} setProducto={setProducto} />
+            <Listado productos={productos} setIdSeleccionado={setIdSeleccionado} setProductos={setProductos} />
+            <Formulario producto={producto} setIdSeleccionado={setIdSeleccionado} setProducto={setProducto} />
         </>
     );
 }

@@ -8,16 +8,19 @@ import { MENUS } from './constantes/menus';
 import { ANUNCIOS } from './constantes/anuncios';
 import { REDES } from './constantes/redes';
 import { useEffect, useState } from 'react';
-import { URL_PRODUCTOS } from './constantes/globales';
+import ProductoService from './servicios/ProductoService';
 
 
 export default function App() {
   const [productos, setProductos] = useState([]);
   
   useEffect(() => {
-    fetch(URL_PRODUCTOS)
-      .then(respuesta => respuesta.json())
-      .then(productos => setProductos(productos));
+    async function pedirProductos() {
+      const productos = await ProductoService.getProductos();
+      setProductos(productos);
+    }
+
+    pedirProductos();
   }, []);
 
   return (
@@ -25,7 +28,7 @@ export default function App() {
       <Menu menus={MENUS} />
       <main className="container">
         {/* <Fichas productos={PRODUCTOS} /> */}
-        <Admin productos={productos} />
+        <Admin productos={productos} setProductos={setProductos} />
       </main>
       {/* <Anuncios anuncios={ANUNCIOS} /> */}
       <Pie redes={ REDES } />
