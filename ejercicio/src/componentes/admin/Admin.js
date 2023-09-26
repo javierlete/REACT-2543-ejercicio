@@ -32,7 +32,7 @@ export default function Admin({ productos, setProductos }) {
             {/* <pre>{JSON.stringify(producto)}</pre> */}
             <pre>{idSeleccionado}</pre>
             <Listado productos={productos} setIdSeleccionado={setIdSeleccionado} setProductos={setProductos} />
-            <Formulario producto={producto} setIdSeleccionado={setIdSeleccionado} setProducto={setProducto} />
+            <Formulario producto={producto} setIdSeleccionado={setIdSeleccionado} setProducto={setProducto} setProductos={setProductos} />
         </>
     );
 }

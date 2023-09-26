@@ -16,6 +16,7 @@ export default class ProductoService {
     }
 
     static async postProducto(producto) {
+        delete producto.id;
         const respuesta = await fetch(URL_PRODUCTOS, {
             method: 'POST',
             headers: {
