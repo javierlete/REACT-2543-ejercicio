@@ -1,7 +1,7 @@
 import { URL_BASE } from '../constantes/globales';
 import axios from 'axios';
 
-const URL_PRODUCTOS = 'http://localhost:1234/productos/';
+const URL_PRODUCTOS = 'http://localhost:3000/productos/';
 
 export default class ProductoService {
     static async getProductos() {
