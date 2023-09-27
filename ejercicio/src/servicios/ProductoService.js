@@ -1,58 +1,40 @@
 import { URL_BASE } from '../constantes/globales';
+import axios from 'axios';
 
-const URL_PRODUCTOS = URL_BASE + 'productos/';
+const URL_PRODUCTOS = 'http://localhost:1234/productos/';
 
 export default class ProductoService {
     static async getProductos() {
-        const respuesta = await fetch(URL_PRODUCTOS);
-        const productos = await respuesta.json();
-        return productos;
+        try {
+            const respuesta = await axios.get(URL_PRODUCTOS);
+            return respuesta.data;
+        } catch (err) {
+            alert('No se ha podido obtener los productos');
+            return [];
+        }
     }
 
     static async getProducto(id) {
-        const respuesta = await fetch(URL_PRODUCTOS + id);
-        const producto = await respuesta.json();
-        return producto;
+        return (await axios.get(URL_PRODUCTOS + id)).data;
     }
 
     static async postProducto(producto) {
         delete producto.id;
-        const respuesta = await fetch(URL_PRODUCTOS, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto)
-        });
-        const nuevoProducto = await respuesta.json();
-        return nuevoProducto;
+        const respuesta = await axios.post(URL_PRODUCTOS, producto);
+        return respuesta.data;
     }
 
     static async putProducto(producto) {
-        const respuesta = await fetch(URL_PRODUCTOS + producto.id, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto)
-        });
-        const nuevoProducto = await respuesta.json();
-        return nuevoProducto;
+        const respuesta = await axios.put(URL_PRODUCTOS + producto.id, producto);
+        return respuesta.data;
     }
 
     static async patchProducto(producto) {
-        const respuesta = await fetch(URL_PRODUCTOS + producto.id, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto)
-        });
-        const nuevoProducto = await respuesta.json();
-        return nuevoProducto;
+        const respuesta = await axios.patch(URL_PRODUCTOS + producto.id, producto);
+        return respuesta.data;
     }
 
     static async deleteProducto(id) {
-        return await fetch(URL_PRODUCTOS + id, { method: 'DELETE' });
+        return await axios.delete(URL_PRODUCTOS + id);
     }
 }
